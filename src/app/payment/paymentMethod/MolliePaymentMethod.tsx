@@ -12,12 +12,13 @@ export enum MolliePaymentMethodType {
 const MolliePaymentMethod: FunctionComponent<MolliePaymentMethodsProps> = ({ initializePayment, method, ...props }) => {
 
     const containerId = `mollie-${method.method}`;
-    const initializeMolliePayment: HostedWidgetPaymentMethodProps['initializePayment'] = useCallback(options => {
+    const initializeMolliePayment: HostedWidgetPaymentMethodProps['initializePayment'] = useCallback((options, selectedInstrumentId) => {
         const mollieElements = getMolliesElementOptions();
 
         return initializePayment({
             ...options,
             mollie: {
+                containerId,
                 cardNumberId : mollieElements.cardNumberElementOptions.containerId,
                 cardCvcId: mollieElements.cardCvcElementOptions.containerId,
                 cardHolderId: mollieElements.cardHolderElementOptions.containerId,
@@ -36,9 +37,10 @@ const MolliePaymentMethod: FunctionComponent<MolliePaymentMethodsProps> = ({ ini
                         color: '#D14343',
                     },
                 },
+                hasVaultedInstruments: !!selectedInstrumentId,
             },
         });
-    }, [initializePayment]);
+    }, [initializePayment, containerId]);
 
     const getMolliesElementOptions = () => {
 

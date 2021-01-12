@@ -29,7 +29,7 @@ describe('MolliePaymentMethod', () => {
         checkoutService = createCheckoutService();
         checkoutState = checkoutService.getState();
         localeContext = createLocaleContext(getStoreConfig());
-        method = {...defaultProps.method, id: 'mollie', gateway: 'mollie', method: 'multi-options'};
+        method = {...defaultProps.method, id: 'mollie', gateway: 'mollie', method: 'belfius'};
 
         jest.spyOn(checkoutState.data, 'getConfig')
             .mockReturnValue(getStoreConfig());
@@ -72,7 +72,7 @@ describe('MolliePaymentMethod', () => {
         component.prop('initializePayment')({
             methodId: method.id,
             gatewayId: method.gateway,
-        });
+        }, 'a67611a6e3253c0db72f0f4afa919405f611f5002d2799abbff5687393d8f590');
 
         expect(checkoutService.initializePayment).toHaveBeenCalled();
 
@@ -99,6 +99,8 @@ describe('MolliePaymentMethod', () => {
                             color: '#D14343',
                         },
                     },
+                    containerId: 'mollie-belfius',
+                    hasVaultedInstruments: true,
                 },
             }));
     });
