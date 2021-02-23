@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.115.3-alpha.1614109985076](https://github.com/bigcommerce/checkout-js/compare/v1.115.2...v1.115.3-alpha.1614109985076) (2021-02-23)
+
+
+### Features
+
+* **payment:** INT-3610 added Mollie Checkout ([4832f4d](https://github.com/bigcommerce/checkout-js/commit/4832f4dcaf464e06ffacf4e6c76140938797779f))
+* **payment:** PAYPAL-876 bump checkout-sdk ([debdc07](https://github.com/bigcommerce/checkout-js/commit/debdc070eb5a27de92a11a88990425f94d79588a))
+
 ### [1.115.2](https://github.com/bigcommerce/checkout-js/compare/v1.115.1...v1.115.2) (2021-02-18)
 
 
